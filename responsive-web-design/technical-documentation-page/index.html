@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
+	<style>
+		.responsive {
+  		max-width: 100%;
+  		height: auto;
+		}
+		.center {
+  		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		}
+    .navbar {
+      display: block;
+      float: left;
+      height: 100%;
+      padding: 100px;
+    }
+    .container {
+      height: 100%;
+      width: 50%;
+      padding: 16px;
+    }
+    @media only screen and (max-width: 800px) {
+      body {
+        background-color: black;
+        color: white;
+      }
+	</style>
+
+	<title>Responsive Web Design Projects - Build a Technical Documentation Page</title>
+
+</head>
+<body>
+
+<nav id="navbar" class="navbar">
+  <header>Implementation of Gamepad Display</header>
+  <ul>
+  <li><a class="nav-link" href="#D-Pad">D-Pad</a></li>
+  <li><a class="nav-link" href="#Analog_Sticks">Analog Sticks</a></li>
+  <li><a class="nav-link" href="#Shoulder_Buttons">Shoulder Buttons</a></li>
+  <li><a class="nav-link" href="#Main_Buttons">Main Buttons</a></li>
+  <li><a class="nav-link" href="#Other_Buttons">Other Buttons</a></li>
+</nav>
+
+	<div id="container" class="container">
+
+    <p>
+      A common sight on speedrunner's livestreams is an input display. Designed to show the state of the speedrunner's gamepad, the input display is surprisingly easy to implement in many streaming setups.
+    </p>
+
+    <main id="main-doc">
+      <section id="D-Pad" class="main-section">
+        <header>D-Pad</header>
+        <p>The D pad provides digital input in 4 directions:
+          <ul>
+            <li>Up</li>
+            <li>Down</li>
+            <li>Left</li>
+            <li>Right</li>
+          </ul>
+        </p>
+        <p>Most controllers allow multiple directions to be held simultanously. Some prevent opposing directions to trigger at the same time.</p>
+        <p>
+        <code>
+          if d-pad-up AND d-pad-left then MOVE("Up-Left")
+        </code>
+        </p>
+
+      </section>
+      <section id="Analog_Sticks" class="main-section">
+        <header>Analog Sticks</header>
+        <p>Two analog sticks are usually included on a gamepad. These provide the precision input required for many modern games.</p>
+        <p>
+        <code>
+          if axis=="Left Stick" then MOVE  <br>
+          if axis=="Right Stick" then AIM
+        </code>
+        </p>
+      </section>
+
+      <section id="Shoulder_Buttons" class="main-section">
+        <header>Shoulder Buttons</header>
+        <p>On the top of the controller, shoulder buttons can be found. These come in two varieties:
+          <ul>
+            <li>Analog "triggers"</li>
+            <li>Digital "bumpers"</li>
+          </ul>
+        </p>
+        <p>These buttons are easier to access while using the D-Pad or Analog Sticks</p>
+        <p>
+        <code>
+          if button=="Right Trigger" then SHOOT  <br>
+          if button=="Left Trigger" then FOCUS
+        </code>
+        </p>
+      </section>
+
+      <section id="Main_Buttons" class="main-section">
+        <header>Main Buttons</header>
+        <p>The main buttons are usually found on the right side of the controller.</p>
+        <p>These buttons usually directly interact with the game.</p>
+        <p>
+        <code>
+          if button=="A" then YES  <br>
+          if button=="B" then NO
+        </code>
+        </p>
+      </section>
+
+      <section id="Other_Buttons" class="main-section">
+        <header>Other Buttons</header>
+        <p>Most controllers also have a few other buttons, sometimes in the center of the controller.</p>
+        <p>These buttons can perform meta functions, such as pausing the game.</p>
+        <p>
+        <code>
+          if button=="start" then PAUSE  <br>
+          if button=="select" then OPEN_MENU
+        </code>
+        </p>
+      </section>
+    </main>
+
+
+  </div>
+  <script src="../../lib/jquery/jquery.min.js"></script>
+  <script src="../../lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" charset="utf-8"></script>
+</body>
+</html>
