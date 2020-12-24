@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
+	<style>
+		.responsive {
+  		max-width: 100%;
+  		height: auto;
+		}
+		.center {
+  		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		}
+	</style>
+
+	<title>Responsive Web Design Projects - Build a Survey Form</title>
+
+</head>
+<body>
+	<div id="main" class="container">
+		<h1 id="title" align="center">D&D Survey</h1>
+
+    <p id="description">Please complete with details about your favourite D&D character.</p>
+
+    <form id="survey-form">
+
+      <p>
+      <label id="name-label" for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your name"></input>
+      </p>
+
+      <p>
+      <label id="email-label" for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email"></input>
+      </p>
+
+      <p>
+      <label id="number-label" for="number">Level:</label>
+      <input type="number" id="number" name="number" min="1" max="20" placeholder="Enter level" value="1"></input>
+      </p>
+
+      <p>
+      <label id="dropdown-label" for="dropdown">Background:</label>
+      <select id="dropdown" name="dropdown">
+
+        <option value="acolyte">Acolyte</option>
+        <option value="outlander">Outlander</option>
+        <option value="entertainer">Entertainer</option>
+
+      </select>
+      </p>
+
+      <p>
+
+      <label for="human">Human</label>
+      <input type="radio" id="human" name="race" value="human" checked="checked">
+
+      <label for="dwarf">Dwarf</label>
+      <input type="radio" id="dwarf" name="race" value="dwarf">
+
+      <label for="elf">Elf</label>
+      <input type="radio" id="elf" name="race" value="elf">
+
+      </p>
+
+      <p>
+
+        <label for="fighter"> Fighter</label>
+        <input type="checkbox" id="fighter" name="fighter" value="Fighter">
+
+        <label for="wizard"> Wizard</label>
+        <input type="checkbox" id="wizard" name="wizard" value="Wizard">
+
+        <label for="ranger"> Ranger</label>
+        <input type="checkbox" id="ranger" name="ranger" value="Ranger">
+
+
+      </p>
+
+      <p>
+      <label for="textarea">Description:</label>
+      <textarea id="textarea" name="textarea" rows="5" cols="40">
+      </textarea>
+      </p>
+
+
+      <p>
+        <button id="submit" type="submit" value="Submit">Submit</button>
+      </p>
+
+
+
+    </form>
+
+	</div>
+  <script src="../../lib/jquery/jquery.min.js"></script>
+  <script src="../../lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" charset="utf-8"></script>
+</body>
+</html>
