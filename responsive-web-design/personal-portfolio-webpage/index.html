@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
+	<style>
+		.responsive {
+  		max-width: 100%;
+  		height: auto;
+		}
+		.center {
+  		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		}
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+    }
+    .welcome {
+      height: 100vh;
+    }
+    @media only screen and (max-width: 800px) {
+      body {
+        background-color: black;
+        color: white;
+      }
+}
+	</style>
+
+	<title>Responsive Web Design Projects - Build a Personal Portfolio Webpage</title>
+
+</head>
+<body>
+
+  <div id="navbar" class="navbar center">
+    <nav>
+      <a id="profile-link" href="https://github.com/joshdavidlevy" target="_blank">Github</a> |
+      <a href="#projects">Projects</a>
+    </nav>
+  </div>
+
+  <div id="main" class="container">
+    <br><br>
+  	<div id="welcome-section" class="container welcome">
+      <h1 id="title" align="center">Personal Portfolio</h1>
+      Welcome to my portfolio.
+  	</div>
+
+    <div id="projects" class="container">
+      <div id="survey-form" class="project-tile">
+        <a href="https://joshlevy.ca/freeCodeCamp/responsive-web-design/survey-form/">Survey Form</a>
+      </div>
+  	</div>
+
+
+
+  </div>
+
+
+
+
+  <script src="../../lib/jquery/jquery.min.js"></script>
+  <script src="../../lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" charset="utf-8"></script>
+</body>
+</html>
