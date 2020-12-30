@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
+	<style>
+		.responsive {
+  		max-width: 100%;
+  		height: auto;
+		}
+		.center {
+  		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		}
+	</style>
+
+	<title>Front End Libraries Projects - Build a Random Quote Machine</title>
+
+</head>
+<body>
+	<div id="main" class="container">
+
+    <div class "row justify-content-center">
+
+      <div id="quote-box">
+
+        <figure class="text-end">
+          <blockquote id="text" class="blockquote">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          </blockquote>
+          <figcaption id = "author" class="blockquote-footer">
+            Someone famous in <cite title="Source Title">Source Title</cite>
+          </figcaption>
+        </figure>
+
+        <a href="#" id="new-quote" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="false" onclick="newQuote();">New Quote</a>
+        <a href="#" id ="tweet-quote" class="btn btn-secondary btn-lg" tabindex="-1" role="button" aria-disabled="false">Tweet It!</a>
+
+      </div>
+
+    </div>
+
+
+	</div>
+  <script src="../../lib/jquery/jquery.min.js"></script>
+  <script src="../../lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" charset="utf-8"></script>
+
+  <script>
+
+    $( document ).ready(function() {
+      newQuote();
+    });
+
+    var newQuote = function() {
+
+      var quotes = [
+        ["The greatest glory in living lies not in never falling, but in rising every time we fall.","Nelson Mandela"],
+        ["The way to get started is to quit talking and begin doing.","Walt Disney"],
+        ["Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.","Steve Jobs"],
+        ["If life were predictable it would cease to be life, and be without flavor.","Eleanor Roosevelt"],
+        ["If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.","Oprah Winfrey"],
+        ["If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.","James Cameron"],
+        ["Life is what happens when you're busy making other plans.","John Lennon"],
+        ["You miss 100% of the shots you don't take.","Wayne Gretzky - Michael Scott"]
+      ]
+
+      var quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+      $("#text").html(quote[0])
+      $("#author").html(quote[1])
+
+      $("#tweet-quote").attr("href", "https://twitter.com/intent/tweet?text=" + quote[0] + " - " + quote[1])
+    }
+
+  </script>
+
+</body>
+</html>

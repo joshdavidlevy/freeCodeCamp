@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
+	<style>
+		.responsive {
+  		max-width: 100%;
+  		height: auto;
+		}
+		.center {
+  		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		}
+	</style>
+
+	<title>Front End Libraries Projects - Build a 25 + 5 Clock</title>
+
+</head>
+<body>
+
+  <audio id="beep" src="alarm.ogg"></audio>
+
+	<div id="main" class="container">
+
+    <button id="timer-label" type="button" class="btn btn-primary col-1">Session</button>
+    <button id="time-left" type="button" class="btn btn-primary col-1">25:00</button>
+
+    <button id="break-label" type="button" class="btn btn-primary col-1">Break Length</button>
+    <button id="break-length" type="button" class="btn btn-primary col-1">5</button>
+    <button id="session-label" type="button" class="btn btn-primary col-1">Session Length</button>
+    <button id="session-length" type="button" class="btn btn-primary col-1">25</button>
+
+    <button id="break-decrement" type="button" class="btn btn-primary col-1">Break Length -</button>
+    <button id="session-decrement" type="button" class="btn btn-primary col-1">Session Length -</button>
+    <button id="break-increment" type="button" class="btn btn-primary col-1">Break Length +</button>
+    <button id="session-increment" type="button" class="btn btn-primary col-1">Session Length+</button>
+
+    <button id="start_stop" type="button" class="btn btn-primary col-1">Start/Stop</button>
+    <button id="reset" type="button" class="btn btn-primary col-1">Reset</button>
+
+
+	</div>
+  <script src="../../lib/jquery/jquery.min.js"></script>
+  <script src="../../lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" charset="utf-8"></script>
+
+
+  <script>
+    var state = ""
+
+    var audioElement = $("#beep")
+
+    var hhss = function(time) {
+      time = parseInt(time)
+      if (time < 10) {
+        time = "0" + time.toString()
+      } else {
+        time = time.toString()
+      }
+      return time + ":00"
+    }
+
+    $("#reset").click(function() {
+      state = ""
+      $("#timer-label").html("Session")
+      $("#break-length").html("5")
+      $("#session-length").html("25")
+      $("#time-left").html("25:00")
+      document.getElementById("beep").pause();
+      document.getElementById("beep").currentTime = 0;
+    })
+
+    $("#break-decrement").click(function() {
+      $("#break-length").html(Math.max(parseInt($("#break-length").html())-1,1))
+      $("#timer-label").html("Break")
+      $("#time-left").html(hhss($("#break-length").html()))
+    })
+    $("#break-increment").click(function() {
+      $("#break-length").html(Math.min(parseInt($("#break-length").html())+1,60))
+      $("#timer-label").html("Break")
+      $("#time-left").html(hhss($("#break-length").html()))
+    })
+
+    $("#session-decrement").click(function() {
+      $("#session-length").html(Math.max(parseInt($("#session-length").html())-1,1))
+      $("#timer-label").html("Session")
+      $("#time-left").html(hhss($("#session-length").html()))
+    })
+    $("#session-increment").click(function() {
+      $("#session-length").html(Math.min(parseInt($("#session-length").html())+1,60))
+      $("#timer-label").html("Session")
+      $("#time-left").html(hhss($("#session-length").html()))
+    })
+
+    $("#start_stop").click(function() {
+
+      if (state == "running") {
+        state = "paused"
+      } else if (state == "paused") {
+        state = "running"
+      } else {
+        $("#time-left").html(hhss($("#session-length").html()))
+        state = "running"
+      }
+    })
+
+
+    var tick = function() {
+      if (state == "running") {
+        var a = $("#time-left").html().split(":")
+        var m = parseInt(a[0])
+        var s = parseInt(a[1])
+
+        if (m<=0 && s<=0) {
+          document.getElementById("beep").play();
+
+          if ($("#timer-label").html() == "Session") {
+            $("#timer-label").html("Break")
+            $("#time-left").html(hhss($("#break-length").html()))
+          } else {
+            $("#timer-label").html("Session")
+            $("#time-left").html(hhss($("#session-length").html()))
+          }
+
+        } else {
+
+          s -= 1
+          if (s<0) {
+            s = 59
+            m -= 1
+          }
+          if (m<=0) {m = 0}
+
+          var ss = s.toString()
+          var mm = m.toString()
+
+          if (ss < 10) {
+            ss = "0" + ss
+          }
+          if (mm < 10) {
+            mm = "0" + mm
+          }
+          $("#time-left").html(mm + ":" + ss)
+        }
+
+      }
+
+    }
+    var timer = setInterval(tick, 1000);
+
+  </script>
+
+
+</body>
+</html>

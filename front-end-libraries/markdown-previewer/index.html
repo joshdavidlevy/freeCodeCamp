@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
+	<style>
+		.responsive {
+  		max-width: 100%;
+  		height: auto;
+		}
+		.center {
+  		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		}
+	</style>
+
+	<title>Front End Libraries Projects - Build a Markdown Previewer</title>
+
+</head>
+<body>
+	<div id="main" class="container">
+
+    <textarea id="editor">
+
+# header (H1 size)
+
+## a sub header (H2 size)
+
+[a link](#)
+
+`inline code`
+
+```
+a
+code
+block
+```
+
+* a list item
+
+>a blockquote
+
+![Image](http://url/a.png)
+
+**bolded text**
+    </textarea>
+
+    <div id="preview">
+    </div>
+
+	</div>
+  <script src="../../lib/jquery/jquery.min.js"></script>
+  <script src="../../lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" charset="utf-8"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.7/marked.js" integrity="sha512-jwq2hFT92zJpzbvtN/lkPADAWkwS7K5RRR9fpdAmCc9+qCbYvjrZ6cxMHuaWx2CDzUc24bk6i4a6zc8Z75/kfQ==" crossorigin="anonymous"></script>
+
+  <script>
+
+    var updatePreview = function() {
+      $("#preview").html(marked($("#editor").val()))
+    }
+
+    $( document ).ready(function() {
+      updatePreview()
+    });
+
+    $("#editor").on("change keyup paste", function() {
+      updatePreview()
+    })
+
+  </script>
+
+</body>
+</html>

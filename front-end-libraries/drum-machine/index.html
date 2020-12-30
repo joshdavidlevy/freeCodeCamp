@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
+	<style>
+		.responsive {
+  		max-width: 100%;
+  		height: auto;
+		}
+		.center {
+  		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		}
+	</style>
+
+	<title>Front End Libraries Projects - Build a Drum Machine</title>
+
+</head>
+<body>
+	<div id="drum-machine" class="container">
+
+    <div id="display">
+    </div>
+
+    <button id="drum-q" type="button" class="drum-pad btn btn-primary col-1">Q <audio id="Q" src="alarm.ogg" class="clip"></audio>  </button>
+    <button id="drum-w" type="button" class="drum-pad btn btn-primary col-1">W <audio id="W" src="alarm.ogg" class="clip"></audio>  </button>
+    <button id="drum-e" type="button" class="drum-pad btn btn-primary col-1">E <audio id="E" src="alarm.ogg" class="clip"></audio>  </button>
+    <button id="drum-a" type="button" class="drum-pad btn btn-primary col-1">A <audio id="A" src="alarm.ogg" class="clip"></audio>  </button>
+    <button id="drum-s" type="button" class="drum-pad btn btn-primary col-1">S <audio id="S" src="alarm.ogg" class="clip"></audio>  </button>
+    <button id="drum-d" type="button" class="drum-pad btn btn-primary col-1">D <audio id="D" src="alarm.ogg" class="clip"></audio>  </button>
+    <button id="drum-z" type="button" class="drum-pad btn btn-primary col-1">Z <audio id="Z" src="alarm.ogg" class="clip"></audio>  </button>
+    <button id="drum-x" type="button" class="drum-pad btn btn-primary col-1">X <audio id="X" src="alarm.ogg" class="clip"></audio>  </button>
+    <button id="drum-c" type="button" class="drum-pad btn btn-primary col-1">C <audio id="C" src="alarm.ogg" class="clip"></audio>  </button>
+
+	</div>
+  <script src="../../lib/jquery/jquery.min.js"></script>
+  <script src="../../lib/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" charset="utf-8"></script>
+
+  <script>
+    $(".drum-pad").click(function() {
+      var me = $(this).html().substr(0,1)
+      document.getElementById(me).play();
+      $("#display").html(me)
+    });
+
+    document.onkeydown = function(e) {
+      var key = e.key.toUpperCase();
+
+      if (key=="Q" || key=="W" || key=="E" || key=="A" || key=="S" || key=="D" || key=="Z" || key=="X" || key=="C") {
+        document.getElementById(key).play();
+        $("#display").html(key)
+      }
+    };
+
+
+
+  </script>
+</body>
+</html>
